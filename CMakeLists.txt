@@ -4,7 +4,10 @@ project(wxWidgetsSampleProject)
 # Set target directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/bin/)
 
-add_executable(wxWidgetsSampleProject src/main.cpp)
+add_executable(wxWidgetsSampleProject 
+    ${CMAKE_CURRENT_LIST_DIR}/src/app.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/mainWindow.cpp
+)
 
 target_compile_definitions(wxWidgetsSampleProject PUBLIC
     _FILE_OFFSET_BITS=64 WXUSINGDLL __WXGTK__
@@ -13,6 +16,7 @@ target_compile_definitions(wxWidgetsSampleProject PUBLIC
 target_include_directories(wxWidgetsSampleProject PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/deps/wxWidgets/include
     ${CMAKE_CURRENT_LIST_DIR}/deps/wxWidgets/lib/wx/include/gtk3-unicode-3.2
+    ${CMAKE_CURRENT_LIST_DIR}/src
 )
 
 target_link_libraries(wxWidgetsSampleProject 
